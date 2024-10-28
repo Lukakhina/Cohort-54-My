@@ -2,28 +2,34 @@ package lesen03;
 
 public class MachOperations {
     public static void main(String[] args) {
+
         // Ctrl + D скопировать строку
         // Alt + Shift + стрелки/ вниз  -перемещать строку по коду
         int var1 = 20;
         int var2 = 7;
         int  result;
+
         // Сложение
         result = var1 + var2;
         // 20 + 7 -> 27 -> result
         // Результат вычислений в правой части ( от знака =) присваевается в переменную в левой части
          System.out.println("result: " + result);
+
          result = 15 + 6;
          System.out.println("result:" + result);
+
          result = var1 + 5;
-         System.out.println("resal: " + result);
+         System.out.println("result: " + result);
+
          result = result + 5 ;
-         System.out.println("resal: " + result);
+         System.out.println("result: " + result);
+
          // Вычитание
         result = var1 - var2;
-        System.out.println("resal - : " + result);
+        System.out.println("result - : " + result);
         // Умножение *
         result = var1 * var2;
-        System.out.println("resal * : " + result);
+        System.out.println("result * : " + result);
         // x = 1 + 2 * 2; -> 5
         /*
         0.
@@ -32,6 +38,7 @@ public class MachOperations {
         */
         result = (1 + 2) * 2;
         System.out.println("resal 1 + 2 * 2 : " + result);
+
         // Цекличное деление/ и остаток 6; -> 20 - -> 7 -> 13 - 7 -> 6
         // 20 / 7 -> 2 целые
         result = var1 / var2; // 2,79999

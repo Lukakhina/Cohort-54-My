@@ -1,4 +1,11 @@
 package homework07;
+/*
+Запишите в 4 переменные случайные числа от 0 до 100.
+Выведите все 4 числа на экран.
+Программа должна определить максимальное из этих четырех чисел и вывести результат на экран.
+Output:
+Максимальное число: 33
+ */
 
 import java.util.Random;
 
@@ -13,13 +20,12 @@ public class Homework0702n {
         System.out.println(var1 + " | " + var2 + " | " + var3 + " | " + var4 );
         int mak = var1;
         if (var1 > mak) mak = var1;
-        System.out.println("mak: " + mak);
         if (var2 > mak) mak = var2;
-        System.out.println("mak: " + mak);
         if (var3 > mak) mak = var3;
-        System.out.println("mak: " + mak);
         if (var4 > mak) mak = var4;
-        System.out.println("mak: " + mak);
+        System.out.println("Максимальная " + mak );
+
+        }
 
     }
-}
+

@@ -13,7 +13,7 @@ Task 1
 
 public class Home03 {
     public static  void  main(String[] args){
-        int age = 200;
+        int age = 40;
         double priceMilk = 1.50;
         String name = "Tanya";
     }
