@@ -1,4 +1,4 @@
-package homework18;
+package homework18.CalculatorMein;
 
 public class Calculator2 {
     // сумма значений
@@ -14,9 +14,9 @@ public class Calculator2 {
         return  a * b;
     }
     public static int division( int a , int b){
-      //  if (b == 0) {
-      //     return "Деление на ноль невозможно";
-      //  }
+        if (b == 0) {
+            System.out.println("Деление на ноль невозможно");
+        }
         return a / b;
     }
 
@@ -25,7 +25,7 @@ public class Calculator2 {
         System.out.println("Сложение: " + sum(10, 5));
         System.out.println("Вычитание: " + subtraction(10, 5));
         System.out.println("Умножение: " + multiplication(10, 5));
-       // System.out.println("Деление: " + division(10, 0)); // Пример деления на ноль не возможен
+
         System.out.println("Деление: " + division(10, 2)); // Вывод: 5.0
 
     }
