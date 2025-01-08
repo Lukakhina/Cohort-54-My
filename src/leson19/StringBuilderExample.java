@@ -5,107 +5,108 @@ import java.util.Scanner;
 
 public class StringBuilderExample {
     public static void main(String[] args) {
-        // Java is -> java is -> java is the -> java is the best
-        String str = "java" + "is" + " " + "the" + " " + "best";
+                    // Java is -> Java is -> Java is the -> Java is the  -> Java is the best
+        String str = "Java " + "is" + " " + "the" + " " + "best";
+
         /*
-        StringBuilder - это специальный класс,
-        предназначений для эффективного создания и модификации изменяемых последовательностей символов
-         В отличие от класса String_ объекты StringBuilder могут изменяться без создания новых объектов в памяти,
-         что повышает производительность при частых операциях со строками
+        StringBuilder - это специальный класс, предназначенный для эффективного создания и модификации изменяемых последовательностей символов
+        В отличие от класса String, объекты StringBuilder могут изменяться без создания новых объектов в памяти, что повышает производительность
+        при частых операциях со строками
          */
 
-        //  Конструктор перегружаем. Может быть пустым, может принимать String
+        // Конструктор перегружен. Может быть пустым, может принимать String
         StringBuilder sb = new StringBuilder();
-        StringBuilder sb1 = new StringBuilder("Hallo");
+        StringBuilder sb1 = new StringBuilder("Hello");
 
-        // метод для добавление в конец строки (приклеить с права) / аналог конкатенации
+        // Метод для добавления в конец строки (приклеить справа) / аналог конкатенации
         sb1.append(" ");
         sb1.append("World").append("!");
 
-        //  получить строковое представление (String)
+        // Получить строковое представление (String)
         String string = sb1.toString();
         System.out.println(string);
 
-        // Bcтавить символы в указанную позицию
-        // "beautiful" вставить в средину строки в 6 индекс
+        // Вставить символы в указанную позицию
         sb = new StringBuilder("Hello World");
         // в какую позицию вставлять, что вставлять
         sb.insert(6, "beautiful ");
-        System.out.println("Hallo World");
+        System.out.println(sb.toString());
+        // "beautiful " вставить в середину строки в 6 индекс
 
-        // "beautiful"  вставить в средину строки в 6 индекс
-        // String s = "Hello World";
-        // String s1 = s.substring(0, 6);
-        // String s2 = s.substring(6);
-        // System.out.println(s1);
-        //System.out.println(s2);
-        //String res = s1 + "beautiful " + s2
-        //System.out.println(res);
-
+        /*
+        String s = "Hello World";
+        String s1 = s.substring(0, 6);
+        String s2 = s.substring(6);
+        System.out.println(s1);
+        System.out.println(s2);
+        String res = s1 + "beautiful " + s2;
+        System.out.println(res);
+         */
 
         // Заменить подстроку (определяется индексами) на указанное значение
         sb = new StringBuilder("Hello World!");
-        sb.replace(6, 11, "Java"); // Верхняя граница не включается
+        sb.replace(6, 11, "Java"); // верхняя граница не включается
         System.out.println(sb.toString());
 
-        // Удалить подстроку (определяется индексами) на указанное значение
-        sb = new StringBuilder("Hallo World!");
+        // Удалить подстроку в диапазоне индексов
+        sb = new StringBuilder("Hello World!");
         sb.delete(5, 11);
         System.out.println(sb.toString());
 
-
-        // Реверс - Разворачивает последовать символов
+        // Реверс - Разворачивает последовательность символов
         sb = new StringBuilder("Hello World!");
         sb.reverse();
         System.out.println(sb.toString());
 
-        // Количество символов - длинна
-        System.out.println("sb.length() " + sb.length());
+        // Количество символов - длина
+        System.out.println("sb.length(): " + sb.length() );
 
         // Получить символ по индексу
         char ch = sb.charAt(3);
         System.out.println(ch);
 
-        // Получить подстроку по индексу / индексами
+        // Получить подстроку по индексу / индексам
         sb = new StringBuilder("Hello World!");
-        String subString = sb.substring(1);
+        String subString = sb.substring(1);  // от индекса до конца строки
         System.out.println(subString);
 
-        subString = sb.substring(6,9);
+        subString = sb.substring(6, 9); // от start до end (верхняя граница не включительно)
         System.out.println(subString);
 
-        // Изменить размер последовательности символов
-        sb = new StringBuilder("Hallo");
+        // Измењять размер последовательности символов
+        sb = new StringBuilder("Hello");
         System.out.println(sb.length());
         sb.setLength(10);
-        // Если увеличивать строку, она будет заполнена char с кодом
+        // Если увеличиваем строку, она будет заполнена char с кодом 0
         System.out.println("setLength(10): " + sb.toString());
         char ch1 = sb.charAt(8);
-        System.out.println("Код символа : sb charAt(8):  " + (int) ch1);
+        System.out.println("код символа: sb.charAt(8): " + (int) ch1) ;
 
         sb.setLength(3);
         System.out.println("setLength(3): " + sb.toString());
 
-        System.out.println("\n====================================\n");
+        System.out.println("\n================\n");
 
         String example = String.join(" ", "Java", "is", "the", "best");
         System.out.println(example);
         String[] strings = example.split(" ");
         System.out.println(Arrays.toString(strings));
+
         /*
-        Написать метод, который запрашивает у пользователя строку, состоящую и нескольких слов
-        и возвращает аббревиатуру этой фразы( первые буквы каждого слова, записанные в верхнем регистре)
-        Привет Джава разработчикам - ПДР
+        Написать метод, который запрашивает у пользователя строку, состоящую из нескольких слов
+        и возвращающий аббревиатуру этой фразы (первые буквы каждого слова, записанные в верхнем регистре)
+        Привет Джава разработчикам -> ПДР
         Использовать StringBuilder
          */
 
-        String rezult = pharseString();
-        System.out.println(rezult);
+        String result = pharseString();
+        System.out.println(result);
 
 
     }
+
     private static String pharseString() {
-         /*
+        /*
         1. Запросить у пользователя строку
         2. Разбить строку на массив слов
         3. Перебрать все слова в цикле
@@ -131,6 +132,10 @@ public class StringBuilderExample {
 
         return sb.toString().toUpperCase();
     }
-
-
 }
+
+
+
+
+
+

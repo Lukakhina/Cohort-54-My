@@ -11,11 +11,11 @@ checkBalance() (остаток на счете).
 
 public class PaymentSystemApp {
     public static void main(String[] args) {
-        BankAccount bankAccount = new BankAccount(250, euro);
+        //BankAccount bankAccount = new BankAccount(250, euro);
 
-        bankAccount.depositTransfer(200);
-        bankAccount.withdrawMoney(150);
-        bankAccount.checkBalance();
+      //  bankAccount.depositTransfer(200);
+      // bankAccount.withdrawMoney(150);
+       // bankAccount.checkBalance();
 
 
     }

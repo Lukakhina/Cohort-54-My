@@ -9,4 +9,19 @@ public class ElectronicWallet implements PaymentSystem {
         this.account = account;
         this.valuta = valuta;
     }
+
+    @Override
+    public void withdrawMoney(double amount) {
+
+    }
+
+    @Override
+    public void depositTransfer(double amount) {
+
+    }
+
+    @Override
+    public double checkBalance() {
+        return 0;
+    }
 }

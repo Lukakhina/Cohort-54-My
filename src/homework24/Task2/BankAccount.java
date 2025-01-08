@@ -9,20 +9,12 @@ public class BankAccount implements PaymentSystem{
         this.valuta = valuta;
     }
 
-    public double getAccount() {
-        return account;
-    }
-
-    public void setAccount(double account) {
-        this.account = account;
-    }
-
-    public String getValuta() {
-        return valuta;
-    }
-
-    public void setValuta(String valuta) {
-        this.valuta = valuta;
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "account=" + account +
+                ", valuta='" + valuta + '\'' +
+                '}';
     }
 
     @Override
@@ -49,6 +41,6 @@ public class BankAccount implements PaymentSystem{
     @Override
     public double checkBalance() {
         System.out.println("total on account " + account + valuta);
-        return 0;
+        return account;
     }
 }

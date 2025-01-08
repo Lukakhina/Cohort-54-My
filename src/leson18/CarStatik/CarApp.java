@@ -9,7 +9,7 @@ public class CarApp {
         System.out.println(Car.totalCars);
 
         Car car = new Car("BMW", 200);
-        System.out.println("До  создания второго авто");
+        System.out.println("Статистическое поле до создание объектов");
         System.out.println(car.toString());
 
 

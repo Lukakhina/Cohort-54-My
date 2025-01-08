@@ -14,7 +14,7 @@ public class Car {
         totalCars++; // Увеличиваем общее количество автомобилей при создании нового объекта
     }
     public String toString() {
-        return String.format("Avto - model : %s, power %d. Всего создано авто: %d" , model, power, totalCars);
+        return String.format("Auto - model : %s, power %d. Всего создано авто: %d" , model, power, totalCars);
     }
 
     public String getModel() {

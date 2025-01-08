@@ -1,26 +1,43 @@
 package lesen05;
 
+
 import java.util.Scanner;
+
+/**
+ * @author Sergey Bugaenko
+ * {@code @date} 24.09.2024
+ */
 
 public class ScannerExample {
     public static void main(String[] args) {
+
+        // Подготовка программы к чтению данных от пользователя
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ведите ваше иммя: ");
+
+        // Спросить имя
+        System.out.println("Введи ваше имя:");
         String name = scanner.nextLine();
 
-        System.out.println("name: " + name);
+        System.out.println(name + 1);
 
-        // прочитать целое число
-        System.out.println("Ведите ваш возраст:");
-        int age = scanner.nextInt(); //Считать одно число int
-        scanner.nextInt(); // скушашь остаток строки
+        // Спросить возврат
+        System.out.println("Введите ваш возраст:");
+        int age = scanner.nextInt();
+        // Обнулить сканер / скушать хвост строки
+        scanner.nextLine();
+        System.out.println(age + 1);
 
-        System.out.println("Введите ваш рост в см");
-        double height = scanner.nextInt();
+        // Введите кол-во детей
+        System.out.println("Введите кол-во детей:");
+        int children = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println(children);
 
-        System.out.println("name: " + name);
-        System.out.println("age: " + age);
-        System.out.println("height: " + height);
+        // Мы можем получить double
+        System.out.println("Введите double: ");
+        double doubleVar = scanner.nextDouble();
+        System.out.println(doubleVar);
+
 
 
     }

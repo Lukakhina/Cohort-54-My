@@ -10,6 +10,7 @@ public class ConstantDemo {
 
     public  ConstantDemo(int x){
         this.x = x;
+        colors[1]= "green";
     }
 
     public int getX() {
