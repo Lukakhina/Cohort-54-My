@@ -29,7 +29,7 @@ public class ListExample {
         System.out.println("list = " + list);
 
         // E get(int index) - возвращает элемент по индексу
-        Integer value = list.get(5);
+        int value = list.get(5);
         System.out.println("value = " + value);
 
         // E remove(int index) - удаляет элемент по индексу, возвращает старое значение
@@ -37,7 +37,7 @@ public class ListExample {
         System.out.println("list = " + list);
 
 
-        //Метод удаленния по значению (из интерфейса Collection) - принимает Object (ссылочный тип)
+        // boolean remove (int index) Метод удаленния по значению (из интерфейса Collection) - принимает Object (ссылочный тип)
        // System.out.println(list.remove(0));
         System.out.println(list.remove(Integer.valueOf(0)));
         System.out.println("list = " + list);
