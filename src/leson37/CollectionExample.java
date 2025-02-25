@@ -26,7 +26,7 @@ public class CollectionExample {
         // Создает неизменяемую коллекцию из переданных элементов
         // Доступен в List, Set, Map
 
-        Collection<Integer> integers = List.of(1, 2, 3, 4, 5);
+        Collection<Integer> integers = List.of(1, 2, 3, 4, 5, 6);
         System.out.println("integers : " + integers);
        // integers.add(7); // попытка модифицировать (изменить) неизменяемую коллекцию приведет к ошибке(Исключительная ситуация)
 
@@ -36,12 +36,14 @@ public class CollectionExample {
         strings.add("Ruby");
         */
 
+        // Добавление
         //addAll(Collection<? extends T> c) - добавляет все элементы из указанной коллекции (Сложение множеств)
         strings.addAll(List.of("JS", "Go Land", "Ruby"));
 
         System.out.println(strings);
 
         System.out.println("\n===============================\n");
+        // Вычитание
         // remove(Collection<?> col) - удаляет все элементы содержащиеся в коллекции col (параметр) из коллекции на которой вызван метод (Вычитание множеств)
         Collection<Integer> numbers = new ArrayList<>();
         numbers.addAll(List.of(0, 1, 2, 3, 4, 5, 3, 3));
@@ -69,8 +71,8 @@ public class CollectionExample {
 
         // boolean remove(Object o) - удаляет элемент из коллекции. Возвращает true, если элемент был удален
         System.out.println("сolA.remove(100) : " + colA.remove(100));
-        //colA.retainAll(List.of(20)); // Удалит одно значение 20
-        System.out.println("сolA.remove(20) : " + colA.remove(20));
+        //colA.retainAll(List.of(20)); // если нужно удалит все вхождения
+        System.out.println("сolA.remove(20) : " + colA.remove(20));// Удалит одно значение 20
         System.out.println("colA : " + colA);
 
         // clear() - удаляет все элементы из коллекции

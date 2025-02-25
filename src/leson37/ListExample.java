@@ -10,8 +10,8 @@ public class ListExample {
         // Конструктор ArrayList
 
         List<Integer> list = new ArrayList<>(); // Создает пустой список(с начальной емкостью под капотом 10 элементов)
-        list = new ArrayList<>(50);
-        list = new ArrayList<>(List.of(1, -10, 5, 0, 25, -100));
+        list = new ArrayList<>(50);// Пустой список с указанной емкостью
+        list = new ArrayList<>(List.of(1, -10, 5, 0, 25, -100)); // Принимает коллекцию
         // Создает список, содержащий все элементы переданной коллекции (копирование элементов из другой коллекции)
 
         //Конструктор LinkedList
@@ -23,6 +23,7 @@ public class ListExample {
         list.add(1000);
         list.add(-100);
         System.out.println("list = " + list);
+
         //void add(int index, E element) - добавляет элемент на указанную позицию
         list.add(3, 500);
         System.out.println("list = " + list);
