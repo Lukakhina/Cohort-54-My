@@ -1,4 +1,4 @@
-package homework36;
+package homework36.iWork;
 
 public class Sportsman implements Comparable<Sportsman> {
     private String name;

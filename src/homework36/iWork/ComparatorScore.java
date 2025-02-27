@@ -1,4 +1,4 @@
-package homework36;
+package homework36.iWork;
 
 import java.util.Comparator;
 

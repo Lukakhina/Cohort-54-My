@@ -1,7 +1,6 @@
-package homework36;
+package homework36.iWork;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class MeinSportsman {
     public static void main(String[] args) {
