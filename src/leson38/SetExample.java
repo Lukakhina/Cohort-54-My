@@ -1,103 +1,165 @@
 package leson38;
 
+
 import java.util.*;
 
 public class SetExample {
+
     /*
-    контракт между equals() и hashCode()
-    Для конкретной работы хэш- коллекции есть важное правило , состоящее из трех условий
-    1. Если два объекта равны по equals(), то их хэш-коды должны быть равны.
-    2. Если хэш-коды двух объектов различны, то обьекты точно не равны по equals().
-    обратное не обязательно верно. Разные объекты (НЕ РАВНЫЕ)могут иметь одинаковые хэш-коды(КОЛИЗИЯ).
-    3. Многократный вызов метода hashCoda на неизменяемом объекте должен возвращать одинаковый результат.
+    Контракт между equals() и hashCode()
+    Для корректной работы хэш-коллекции есть важное правило, состоящее из трех условий.
+    1. Если два объекта равны по методу equals, то их хеш-коды тоже должны быть равны.
+    2. Если хеш-коды двух объектов различны, то объекты точно не равны по equals.
+    Обратное не всегда верно. Разные объекты (не равные) могут иметь одинаковый хеш-код (коллизия)
+    3. При многократных вызовах метода hashCode() на неизмененном объекте каждый раз должен возвращаться одинаковый результат (хеш-код)
+
      */
     public static void main(String[] args) {
+
         // Конструкторы
-        Set<Integer> set = new HashSet<>(); // Создает пустой
-        set = new HashSet<>(20); // Создает пустой с начальной емкостью 20
-//       //Принимает колекцию - создает с такими же элементами
-        set = new HashSet<>(List.of(1, 2, 3, 4, 5, 6, 0));
-        System.out.println("set :" + set);
+        Set<Integer> set = new HashSet<>(); // Создает пустой хеш-сет емкостью 16 и коэффициент заполнения 0.75
+        set = new HashSet<>(20); // Создает пустой хеш-сет c указанной емкостью
+        // Принимает коллекцию - создает новый сет, содержащий уникальные элементы из указанной коллекции
+        set = new HashSet<>(List.of(1, 2, 3, 5, 6, 6, 6, 5, 3, 6, 0));
 
-        List<Integer> startValues = new ArrayList<>(List.of(1, 2, 3, 4, 3, 8, 6, 15, 7, 8, 9, 10));
-        System.out.println("startValues: " + startValues);
-        // HashSet - не гарантирует порядок элементов
+        System.out.println("Set: " + set);
 
+        List<Integer> startValues = new ArrayList<>(List.of(15, 1, 2, 3, 4, 3, 8, 6, 15, 7, 0, 16, 32));
+        System.out.println("StartValues: " + startValues);
+
+        // HashSet - не поддерживает порядок добавления элементов
         Set<Integer> integers = new HashSet<>(startValues);
-        System.out.println("integers: " + integers);
+        System.out.println("Set: " + integers);
 
-        //LinkedHashSet - гарантирует порядок элементов
-        Set<Integer> linkedSed = new LinkedHashSet<>(startValues);
-        System.out.println("linkedSed: " + linkedSed);
+        // LinkedHashSet - сохраняет порядок добавления элементов
+        Set<Integer> linkedSet = new LinkedHashSet<>(startValues);
+        System.out.println("LinkedSet: " + linkedSet);
+
         // Методы интерфейса Set
 
-        //boolean add(E e) - добавляет элемент в множество
-        System.out.println("Integer.add(100)" + integers.add(100));
+        // boolean add(E e) - добавление элемента
+        System.out.println("integers.add(100): " + integers.add(100)); // true - элемент добавлен.
         System.out.println(integers);
-        System.out.println("Integer.add(100)" + integers.add(100)); // false - такой элемент уже есть
-        System.out.println(integers);
-
-        //boolean remove(Object o) - удаляет элемент по значению
-
-        System.out.println("integers.remove(100): " + integers.remove(100));// true - элемент удален
+        System.out.println("integers.add(100) #2: " + integers.add(100)); // false - элемент НЕ добавлен, т.к. такое значение уже есть (дубликат)
         System.out.println(integers);
 
-        // boolean contains(Object o) - проверяет наличие элемента  в множестве
-        System.out.println("integers.contains(100): " + integers.contains(100)); // false - элемента нет
-        System.out.println("integers.contains(10): " + integers.contains(10)); // true - элемент есть
+        System.out.println("\n==================\n");
+
+        // boolean remove(Object obj) - удаляет элемент по значению
+        System.out.println("integers.remove(100): " + integers.remove(100)); // true
+        System.out.println(integers);
+
+        // boolean contains(Object o) - проверяет присутствие значения в множестве
+        System.out.println("integers.contains(100): " + integers.contains(100));
+        System.out.println("integers.contains(32): " + integers.contains(32));
 
         /*
-        int size() -  количество элементов
-        isEmpty() - пустое ли множество
-        clear() - очистка множества
-         */
-        //iterator() - возвращает итератор для элементов множества
-        // Наличие итератора позволяет использовать цикл for-each
-        for (Integer value : integers) {
-            System.out.println(value + ", ");
+        int size() - кол-во элементов
+        isEmpty()
+        clear() - удаляет все элементы
+        */
 
+        System.out.println("\n====================\n");
+
+        // iterator() - возвращает итератор для элементов set-a
+        // Наличие итератора, позволяет перебирать все элементы циклом for-each
+        for (Integer value: integers) {
+            System.out.print(value + ", ");
         }
-        System.out.println();
-        Iterator<Integer> integer = integers.iterator();
-        while (integer.hasNext()) {
-            Integer value = integer.next();
-            System.out.println(value + ", ");
-        }
+
         System.out.println();
 
-        //убрать дубликаты из списка
-        // Написать метод, который принимает список и возвращает множество без дубликатов
-        // состоящий только из уникальных элементов начального значения
 
-        System.out.println("\n===============================\n");
-//        System.out.println("startValues: " + startValues);
-//        Set<Integer> uniqueSet = new HashSet<>(startValues);
-//        System.out.println("uniqueSet: " + uniqueSet);
+        Iterator<Integer> iterator = integers.iterator();
+        while (iterator.hasNext()) {
+            Integer value = iterator.next();
+            System.out.print(value + ", ");
+        }
+        System.out.println();
 
-        System.out.println("\n===============================\n");
-        //SortedSet - конструкторы
+        // Убрать дубликаты.
+        // Написать метод, который принимает список и возвращает список,
+        // состоящий только из уникальных элементов начального списка
+
+        System.out.println("\n===================\n");
+        System.out.println(startValues);
+        List<Integer> resultList = getUniqueList(startValues);
+        System.out.println(resultList);
+
+
+        System.out.println("\n===================\n");
+
+        // SortedSet Конструкторы
         // Пустой = Конструктор по умолчанию - естественный порядок сортировки
-        SortedSet<Integer> treeSed = new TreeSet<>(Comparator.reverseOrder());
-        treeSed.add(100);
-        treeSed.add(10);
-        treeSed.add(50);
-        treeSed.add(20);
-        System.out.println("sortedSet: " + treeSed);
-        // Конструктор с компаратором, ОПРЕДЕЛЯЮЩИМ ПОРЯДОК СОРТИРОВКИ);
-        treeSed.addAll(startValues);
-        treeSed.add(100);
-        System.out.println("treeSed: " + treeSed);
+        SortedSet<Integer> sortedSet = new TreeSet<>(); // пустое, упорядоченное множество. Сортировка в естественном порядке
+        sortedSet.add(100);
+        sortedSet.add(32);
+        sortedSet.add(150);
+        sortedSet.add(125);
+        System.out.println("SortedSet: " + sortedSet);
 
+        // Конструктор с компаратором, определяющим порядок хранения элементов
+        SortedSet<Integer> treeSet = new TreeSet<>(Comparator.reverseOrder()); // Обратный естественному порядок сортировки
+        treeSet.addAll(startValues);
+        treeSet.add(10);
+        System.out.println(treeSet);
+
+        treeSet = new TreeSet<>((i1, i2) -> i2 - i1);
+        treeSet = new TreeSet<>((i1, i2) -> Integer.compare(i2, i1));
+        treeSet.addAll(startValues);
+        System.out.println(treeSet);
+
+        // first() - возвращает самый первый (самый левый) (наименьший по мнению Comparator-а)
+        System.out.println("treeSet.first(): " + treeSet.first());
+
+        // last() - возвращает последний
+        System.out.println("treeSet.last(): " + treeSet.last());
+
+        // SortedSet<E> headSet(E element) - возвращает часть множества, элементы которого строго меньше чем element
+        SortedSet<Integer> headSet = treeSet.headSet(8);
+        System.out.println("treeSet.headSet(8): " + headSet);
+
+        // SortedSet tailSet(E element) - элементы больше или равно element
+        SortedSet<Integer> tailSet = treeSet.tailSet(8);
+        System.out.println("treeSet.tailSet(8): " + tailSet);
+
+        // comparator() - Возвращает компаратор
+        // вернет null если используется естественный порядок
+
+
+        test();
 
 
 
 
 
     }
+
+    private static void test() {
+        String testStr = "Тестовая строка, со словами!";
+        // Заменяем все НЕбуквы на пустоту
+        String newStr = testStr.replaceAll("[^a-zA-Z0-9а-яА-Я ]", "");
+        System.out.println(newStr);
+
+        // Преобразования строки в массив слов
+        String[] words = newStr.split(" ");
+        System.out.println(Arrays.toString(words));
+
+        // Arrays.asList(T[] array) - преобразует массив в список
+        List<String> list = Arrays.asList(words);
+        System.out.println(list);
+
+
+
+
+    }
+
     private static <T> List<T> getUniqueList(List<T> list) {
-        // Получить set,  содержащий все элементы
+        // Получить set, состоящий из уникальных элементов списка
         Set<T> set = new LinkedHashSet<>(list);
-        //Вернуть новый список, содержащий все элементы set-a
+        // вернуть новый список, содержащий все элементы set-а
         return new ArrayList<>(set);
     }
 }
+
+
