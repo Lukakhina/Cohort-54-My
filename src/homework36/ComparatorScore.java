@@ -10,4 +10,5 @@ public class ComparatorScore implements Comparator<Sportsman> {
     public int compare(Sportsman S1, Sportsman S2) {
         return S1.getScore() - S2.getScore();
     }
+
 }

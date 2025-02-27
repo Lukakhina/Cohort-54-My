@@ -27,13 +27,13 @@ public class MeinSportsman {
         Arrays.sort(Sportsman, new ComparatorScore());
         System.out.println(Arrays.toString(Sportsman));
 
-        System.out.println("++++++++++++ Анонимный +++++++++++++++\n");
-        Arrays.sort(Sportsman, new Comparator<homework36.Sportsman>() {
-            @Override
-            public int compare(homework36.Sportsman sportsman1, homework36.Sportsman sportsman2) {
-                return sportsman1.getName().compareTo(sportsman2.getName());
-            }
-        });
+      //  System.out.println("++++++++++++ Анонимный +++++++++++++++\n");
+      //  Arrays.sort(Sportsman, new Comparator<homework36.Sportsman>() {
+      //      @Override
+      //      public int compare(homework36.Sportsman sportsman1, homework36.Sportsman sportsman2) {
+      //          return sportsman1.getName().compareTo(sportsman2.getName());
+      //      }
+      //  });
       //  Arrays.sort(Sportsman, new Comparator<homework36.Sportsman>() {
       //      @Override
       //      public int compare(homework36.Sportsman sportsman1, homework36.Sportsman sportsman2) {
@@ -41,7 +41,7 @@ public class MeinSportsman {
      //       }
 
     //    });
-        System.out.println(Arrays.toString(Sportsman));
+      //  System.out.println(Arrays.toString(Sportsman));
 
 
 
