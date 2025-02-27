@@ -1,8 +1,7 @@
-package homeWork39;
+package homeWork39.myWork;
 
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 //Частотный словарь слов: Напишите метод, который принимает строку текста и возвращает Map<String, Integer>,
