@@ -31,7 +31,8 @@ public class Car {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Car car)) return false;
+        if (!(o instanceof Car )) return false;
+        Car car = (Car) o;
         return id == car.id && year == car.year && Double.compare(price, car.price) == 0 && Objects.equals(model, car.model);
     }
 

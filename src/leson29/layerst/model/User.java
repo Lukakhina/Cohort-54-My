@@ -34,6 +34,7 @@ public class User {
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
+        if (!(o instanceof User)) return false;
         User user = (User) o;
 
         return Objects.equals(email, user.email) && Objects.equals(password, user.password) && role == user.role && userCars.equals(user.userCars);
