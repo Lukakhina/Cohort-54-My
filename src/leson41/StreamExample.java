@@ -1,6 +1,8 @@
 package leson41;
 
 
+import leson42.StreamExample2;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -75,18 +77,18 @@ public class StreamExample {
     } // Methods area
 
     private static void task8() {
-        Cat cat = new Cat("Bear", 5, "braun");
-        Cat cat1 = new Cat("Python", 7, "green");
-        Cat cat2 = new Cat("Tiger", 3, "yellow");
-        Cat cat3 = new Cat("Panda", 4, "black");
+        StreamExample2.Cat cat = new StreamExample2.Cat("Bear", 5, "braun");
+        StreamExample2.Cat cat1 = new StreamExample2.Cat("Python", 7, "green");
+        StreamExample2.Cat cat2 = new StreamExample2.Cat("Tiger", 3, "yellow");
+        StreamExample2.Cat cat3 = new StreamExample2.Cat("Panda", 4, "black");
 
-        Cat[] cats = {cat, cat1, null, cat2, cat3, new Cat(null, 10, "red")};
+        StreamExample2.Cat[] cats = {cat, cat1, null, cat2, cat3, new StreamExample2.Cat(null, 10, "red")};
 
         // Получить список кошек, имя которых длиннее 4 символов
 
         // Arrays.stream(cats) - создает поток из элементов массива
 
-        List<Cat> longCats = Arrays.stream(cats)
+        List<StreamExample2.Cat> longCats = Arrays.stream(cats)
 //                .filter(c -> c != null) // оставить в потоке только не null
 //                .filter(c -> Objects.nonNull(c)) // оставить не null значения
                 .filter(Objects::nonNull) // оставить не null значения
@@ -103,7 +105,7 @@ public class StreamExample {
     }
 
     private static void task7() {
-        List<Cat> cats = getListCats();
+        List<StreamExample2.Cat> cats = getListCats();
 
         // Вывести на экран имена котов, чей вес меньше 5 кг.
         // Вывести на экран котов, после фильтрации
@@ -125,7 +127,7 @@ public class StreamExample {
     private static void task6() {
         // Получить список имен кошек, у которых имена короче 5 символов
 
-        List<Cat> cats = getListCats();
+        List<StreamExample2.Cat> cats = getListCats();
 
         /*
         классически - методы фильтрации должны выполнятся в потоке как можно раньше
@@ -133,7 +135,7 @@ public class StreamExample {
          */
         List<String> names1 = cats.stream()
                 .filter(cat -> cat.getName().length() < 5)
-                .map(Cat::getName)
+                .map(StreamExample2.Cat::getName)
                 .collect(Collectors.toList());
 
         System.out.println(names1);
@@ -143,7 +145,7 @@ public class StreamExample {
          */
         System.out.println("\n=====================");
         List<String> names2 = cats.stream()
-                .map(Cat::getName)
+                .map(StreamExample2.Cat::getName)
                 .filter(name -> name.length() < 5)
                 .collect(Collectors.toList());
 
@@ -153,7 +155,7 @@ public class StreamExample {
     }
 
     private static void task5() {
-        List<Cat> cats = getListCats();
+        List<StreamExample2.Cat> cats = getListCats();
 
         /*
         Получить список имен кошек, чей вес больше 4
@@ -166,7 +168,7 @@ public class StreamExample {
         List<String> names = cats.stream()
                 .filter(cat -> cat.getWeidht() > 4)
 //                .map(cat -> cat.getName())
-                .map(Cat::getName)
+                .map(StreamExample2.Cat::getName)
                 .collect(Collectors.toList());
 
         System.out.println(names);
@@ -174,7 +176,7 @@ public class StreamExample {
     }
 
     private static void task4() {
-        List<Cat> cats = getListCats();
+        List<StreamExample2.Cat> cats = getListCats();
 
         // Получить список имен всех кошек
 
@@ -182,7 +184,7 @@ public class StreamExample {
                 .map(cat -> cat.getName());
 
         List<String> catNames = cats.stream()
-                .map(Cat::getName)
+                .map(StreamExample2.Cat::getName)
                 .collect(Collectors.toList());
 
 //        List<String> listName = new ArrayList<>();
@@ -197,27 +199,27 @@ public class StreamExample {
     }
 
     private static void task3() {
-        List<Cat> cats = getListCats();
+        List<StreamExample2.Cat> cats = getListCats();
 
         // Оставить котов с именем, длиннее 4 символов
-        Stream<Cat> stream = cats.stream()
+        Stream<StreamExample2.Cat> stream = cats.stream()
                 .filter(c -> c.getName().length() > 4);
 
         // Пока не запущен терминальный метод - промежуточные методы не выполняются
-        List<Cat> longNames = stream.collect(Collectors.toList());
+        List<StreamExample2.Cat> longNames = stream.collect(Collectors.toList());
 
         System.out.println("longNames: " + longNames);
     }
 
     private static void task2() {
-        List<Cat> cats = getListCats();
+        List<StreamExample2.Cat> cats = getListCats();
 
         // список кошек с весом больше 4
-        Stream<Cat> catStream = cats.stream()
+        Stream<StreamExample2.Cat> catStream = cats.stream()
                 .filter(cat -> cat.getWeidht() > 4);
 
         // Терминальный метод
-        List<Cat> fatCats = catStream.collect(Collectors.toList());
+        List<StreamExample2.Cat> fatCats = catStream.collect(Collectors.toList());
 //        List<Cat> fatCats = catStream.toList(); // Java 17 or higher  .collect(Collectors.toList() = .toList()
 
         // Повторно использовать "закрытый" поток нельзя. Закрытый - на котором уже был вызван терминальный метод.
@@ -228,12 +230,12 @@ public class StreamExample {
     }
 
 
-    private static List<Cat> getListCats() {
+    private static List<StreamExample2.Cat> getListCats() {
         return List.of(
-                new Cat("Bear", 5, "braun"),
-                new Cat("Python", 7, "green"),
-                new Cat("Tiger", 3, "yellow"),
-                new Cat("Panda", 4, "black")
+                new StreamExample2.Cat("Bear", 5, "braun"),
+                new StreamExample2.Cat("Python", 7, "green"),
+                new StreamExample2.Cat("Tiger", 3, "yellow"),
+                new StreamExample2.Cat("Panda", 4, "black")
         );
     }
 
